@@ -166,6 +166,9 @@ export interface Media {
 export interface MenuCategory {
   id: number;
   name: string;
+  /**
+   * This decided in what order the category is displayed on the website, lower value means display first. Leave this blank to auto assign a value
+   */
   order?: number | null;
   image?: (number | null) | Media;
   updatedAt: string;
