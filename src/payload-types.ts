@@ -358,11 +358,11 @@ export interface HomePage {
     /**
      * Title to show in hero section
      */
-    heroHeadline: string;
+    heading: string;
     /**
      * Description text for hero section
      */
-    heroSubText: string;
+    description: string;
     /**
      * Text to show for the CTA (call to action) button
      */
@@ -466,8 +466,8 @@ export interface HomePageSelect<T extends boolean = true> {
     | T
     | {
         heroImage?: T;
-        heroHeadline?: T;
-        heroSubText?: T;
+        heading?: T;
+        description?: T;
         ctaText?: T;
         ctaLink?: T;
       };

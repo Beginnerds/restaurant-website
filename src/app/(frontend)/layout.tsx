@@ -12,11 +12,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <body className="bg-background relative">
-        <header className="relative sticky top-0 left-0 z-30">
+      <body className="bg-background relative font-default">
+        <header className="sticky top-0 left-0 z-30 md:max-w-7xl mx-auto">
           <NavBar />
         </header>
-        <main>{children}</main>
+        <main className="md:max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   )

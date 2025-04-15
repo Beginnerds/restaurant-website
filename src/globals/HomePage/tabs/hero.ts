@@ -15,16 +15,16 @@ const tab: Tab = {
       },
     },
     {
-      name: 'heroHeadline',
+      name: 'heading',
       type: 'text',
       required: true,
-      label: 'Headline',
+      label: 'heading',
       admin: {
         description: 'Title to show in hero section',
       },
     },
     {
-      name: 'heroSubText',
+      name: 'description',
       type: 'textarea',
       required: true,
       label: 'Hero Sub Text',
