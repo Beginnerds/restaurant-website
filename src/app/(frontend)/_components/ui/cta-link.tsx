@@ -13,7 +13,7 @@ const CTALink: React.FC<ButtonProps> = (props) => {
     <Link
       href={props.href}
       target={props.target || ''}
-      className={`bg-primary text-white font-semibold text-xl md:text-2xl rounded-[40px] filter transition-all hover:brightness-90 px-6 py-3 ${props.showShadow ? 'shadow-xl shadow-primary/40' : ''}`}
+      className={`bg-primary text-white font-semibold text-xl md:text-2xl rounded-[40px] filter transition-all hover:brightness-90 px-8 py-4 ${props.showShadow ? 'shadow-xl shadow-primary/40' : ''}`}
     >
       {props.children}
     </Link>

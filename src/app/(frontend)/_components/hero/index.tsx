@@ -2,7 +2,6 @@ import React from 'react'
 
 import Image from 'next/image'
 import { HomePage } from '@/payload-types'
-import styles from './styles.module.css'
 import CTALink from '../ui/cta-link'
 
 type HeroProps = HomePage['hero']
@@ -15,22 +14,20 @@ const Hero: React.FC<HeroProps> = async (props) => {
   const headingWordsArr = props.heading.split(' ')
 
   const headingLastWord = headingWordsArr[headingWordsArr.length - 1]
-
+  // sm:h-[400px] md:h-[800px]
   return (
-    <section className="w-full grid grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-start items-center max-md:text-center  sm:pt-5 md:pt-10">
-      <div className="relative order-1 md:order-2 aspect-square">
-        <div
-          className={`absolute top-0 left-0 h-full w-full -z-10 bg-primary ${styles.clip}`}
-        ></div>
+    // min-h because nav is 80px
+    <section className="max-sm:min-h-[calc(100vh-80px)] w-full grid grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-start md:items-center max-md:text-center pb-10 overflow-x-clip">
+      <div className="relative order-1 md:order-2 aspect-square justify-self-center">
         <Image
-          className="h-[250px] sm:h-[400px] md:h-full w-full object-contain"
+          className="h-[350px] sm:h-auto md:h-[min(50vh,800px)] lg:h-[800px]  w-auto mx-auto object-contain"
           alt={'hero image'}
           src={heroImageUrl}
           height={850}
           width={850}
         />
       </div>
-      <div className=" order-2 md:order-1">
+      <div className="order-2 md:order-1">
         <h1 className="font-extrabold text-4xl 2xl:text-6xl leading-[145.5%]">
           {props.heading.split(' ').slice(0, -1).join(' ')}{' '}
           <span className="text-primary">{headingLastWord}</span>

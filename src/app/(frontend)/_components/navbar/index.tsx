@@ -16,7 +16,7 @@ const NavBar = async () => {
   const logoUrl = typeof logoMedia === 'object' && logoMedia?.url ? logoMedia.url : ''
   return (
     <>
-      <div className="w-full h-[80px]  mx-auto font-nav">
+      <div className="w-full h-[80px]  mx-auto font-nav bg-background">
         <div className="hidden md:block h-full">
           <NavDesktop logoUrl={logoUrl} />
         </div>

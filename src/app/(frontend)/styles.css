@@ -4,6 +4,8 @@
 @theme{
     --color-primary: #39DB4A;
     --color-background: #FCFCFC;
+    --color-section-label: #ff6868;
     --font-default: "Inter", sans-serif;
     --font-nav: "Poppins", sans-serif;
+ 
 }

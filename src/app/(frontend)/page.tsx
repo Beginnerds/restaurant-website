@@ -5,6 +5,7 @@ import React from 'react'
 
 import config from '@/payload.config'
 import Hero from './_components/hero'
+import CategorySection from './_components/category-section'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -19,6 +20,9 @@ export default async function HomePage() {
   return (
     <div className="px-4 md:px-8">
       <Hero {...homePageData.hero} />
+      <CategorySection
+        featuredCategoryItems={homePageData['featured-section']?.featuredCategoryItems}
+      />
     </div>
   )
 }
