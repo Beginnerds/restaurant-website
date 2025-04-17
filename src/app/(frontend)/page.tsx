@@ -8,6 +8,7 @@ import Hero from './_components/hero'
 import CategorySection from './_components/category-section'
 import FeaturedFoodSection from './_components/featured-food-section'
 import TestimonialsSection from './_components/testimonials-section/testimonials-section'
+import ServicesSection from './_components/services-section'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -29,6 +30,7 @@ export default async function HomePage() {
         featuredMenuItems={homePageData['featured-section']?.featuredMenuItems}
       />
       <TestimonialsSection {...homePageData.testimonials} />
+      <ServicesSection {...homePageData['services-section']} />
     </div>
   )
 }
