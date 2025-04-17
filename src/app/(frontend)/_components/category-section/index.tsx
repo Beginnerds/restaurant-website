@@ -51,7 +51,7 @@ const CategorySection: React.FC<FeaturedCategoryItemsProps> = async (props) => {
   return (
     <section className="my-10">
       <SectionLabel>Popular Categories</SectionLabel>
-      <div className="flex justify-between items-center gap-8 flex-wrap">
+      <div className="flex justify-evenly lg:justify-between items-center gap-8 flex-wrap">
         {mappedItems.map((item, ind) => (
           <Card key={ind} name={item.name} imgUrl={item.imgUrl} dishesCount={item.dishesCount} />
         ))}
