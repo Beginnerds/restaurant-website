@@ -397,6 +397,10 @@ export interface HomePage {
   };
   testimonials: {
     /**
+     * Image for the testimonials section
+     */
+    image: number | Media;
+    /**
      * Heading to show for this section
      */
     heading: string;
@@ -493,6 +497,7 @@ export interface HomePageSelect<T extends boolean = true> {
   testimonials?:
     | T
     | {
+        image?: T;
         heading?: T;
         description?: T;
       };

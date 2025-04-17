@@ -5,6 +5,16 @@ const tab: Tab = {
   label: 'Testimonials Section',
   fields: [
     {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      label: 'Image',
+      admin: {
+        description: 'Image for the testimonials section',
+      },
+    },
+    {
       name: 'heading',
       label: 'Heading',
       type: 'text',

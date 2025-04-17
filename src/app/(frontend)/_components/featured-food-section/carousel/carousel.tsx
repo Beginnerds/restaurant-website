@@ -19,7 +19,9 @@ export const EmblaCarousel: React.FC<carouselProps> = (props) => {
   return (
     <div>
       <div className="flex flex-row mitems-center justify-between">
-        <SectionTitle>Standout Dishes From Our Menu</SectionTitle>
+        <SectionTitle className="sm:text-start! sm:w-auto!">
+          Standout Dishes From Our Menu
+        </SectionTitle>
         <div className="hidden sm:flex basis-2/3  justify-end items-center gap-2">
           {' '}
           <CarouseNavBtn type="prev" handleClick={onPrevButtonClick} disabled={prevBtnDisabled} />

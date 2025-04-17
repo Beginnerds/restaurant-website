@@ -7,11 +7,15 @@ import CTALink from '../ui/cta-link'
 type HeroProps = HomePage['hero']
 
 const Hero: React.FC<HeroProps> = async (props) => {
+  if (!props.heading || !props.description || !props.heroImage || !props.ctaText) {
+    return null
+  }
+
   const heroMedia = props.heroImage
 
   const heroImageUrl = typeof heroMedia === 'object' && heroMedia?.url ? heroMedia.url : ''
 
-  const headingWordsArr = props.heading.split(' ')
+  const headingWordsArr = props.heading?.split(' ')
 
   const headingLastWord = headingWordsArr[headingWordsArr.length - 1]
   // sm:h-[400px] md:h-[800px]

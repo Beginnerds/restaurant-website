@@ -7,6 +7,7 @@ import config from '@/payload.config'
 import Hero from './_components/hero'
 import CategorySection from './_components/category-section'
 import FeaturedFoodSection from './_components/featured-food-section'
+import TestimonialsSection from './_components/testimonials-section/testimonials-section'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -27,6 +28,7 @@ export default async function HomePage() {
       <FeaturedFoodSection
         featuredMenuItems={homePageData['featured-section']?.featuredMenuItems}
       />
+      <TestimonialsSection {...homePageData.testimonials} />
     </div>
   )
 }
