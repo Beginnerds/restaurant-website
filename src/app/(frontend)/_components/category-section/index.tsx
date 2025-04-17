@@ -19,16 +19,17 @@ const CategorySection: React.FC<FeaturedCategoryItemsProps> = async (props) => {
     return null
   }
 
-  console.log(props.featuredCategoryItems.map((item) => item.id).join(','))
-
   const payload = await getPayload({ config: config })
 
   const menuItemsResult = await payload.find({
     collection: 'menu-items',
+    pagination: false,
+    limit: 9999,
   })
 
   const items = props.featuredCategoryItems as unknown as {
     featuredCategoryItem: MenuCategory
+    id: string
   }[]
 
   const mappedItems = items.map((i) => {
@@ -38,7 +39,7 @@ const CategorySection: React.FC<FeaturedCategoryItemsProps> = async (props) => {
 
     const totalDishes = menuItemsResult.docs
       .slice()
-      .filter((item) => (item.category as MenuCategory).id == i.featuredCategoryItem.id)
+      .filter((item) => (item.category as MenuCategory).name == i.featuredCategoryItem.name)
 
     return {
       name: i.featuredCategoryItem.name,
@@ -58,6 +59,7 @@ const CategorySection: React.FC<FeaturedCategoryItemsProps> = async (props) => {
           name="Browse All"
           imgUrl="/other-category-items.png"
           dishesCount={menuItemsResult.docs.length}
+          all={true}
         />
       </div>
     </section>
@@ -70,6 +72,7 @@ type CardProps = {
   name: string
   imgUrl: string
   dishesCount?: number
+  all?: boolean
 }
 
 const Card: React.FC<CardProps> = (props) => {
@@ -91,7 +94,7 @@ const Card: React.FC<CardProps> = (props) => {
         {props.name}
       </p>
       {props.dishesCount && (
-        <p className="mt-1 text-[#555555] text-base md:text-lg text-center">{`(${props.dishesCount} ${props.name.toLowerCase()})`}</p>
+        <p className="mt-1 text-[#555555] text-base md:text-lg text-center">{`(${props.dishesCount} ${props.all ? 'items' : props.name.toLowerCase()})`}</p>
       )}
     </Link>
   )

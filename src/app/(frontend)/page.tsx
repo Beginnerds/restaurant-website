@@ -6,6 +6,7 @@ import React from 'react'
 import config from '@/payload.config'
 import Hero from './_components/hero'
 import CategorySection from './_components/category-section'
+import FeaturedFoodSection from './_components/featured-food-section'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -22,6 +23,9 @@ export default async function HomePage() {
       <Hero {...homePageData.hero} />
       <CategorySection
         featuredCategoryItems={homePageData['featured-section']?.featuredCategoryItems}
+      />
+      <FeaturedFoodSection
+        featuredMenuItems={homePageData['featured-section']?.featuredMenuItems}
       />
     </div>
   )
