@@ -31,8 +31,8 @@ const ServicesSection: React.FC<ServicesPrpos> = (props) => {
         <SectionLabel>Our Story And Services</SectionLabel>
         <SectionTitle className="max-lg:text-center! max-lg:w-full!">{props.heading}</SectionTitle>
         <div className="mt-9">
-          <SectionDescription>
-            <p className="max-lg:text-center">{props.description}</p>
+          <SectionDescription className="max-lg:text-center!">
+            {props.description}
           </SectionDescription>
         </div>
         <div className="mt-14 max-lg:text-center">

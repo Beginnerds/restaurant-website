@@ -29,6 +29,7 @@ const Hero: React.FC<HeroProps> = async (props) => {
           src={heroImageUrl}
           height={850}
           width={850}
+          priority
         />
       </div>
       <div className="order-2 md:order-1">

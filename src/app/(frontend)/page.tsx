@@ -9,6 +9,7 @@ import CategorySection from './_components/category-section'
 import FeaturedFoodSection from './_components/featured-food-section'
 import TestimonialsSection from './_components/testimonials-section/testimonials-section'
 import ServicesSection from './_components/services-section'
+import Footer from './_components/footer'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -31,6 +32,7 @@ export default async function HomePage() {
       />
       <TestimonialsSection {...homePageData.testimonials} />
       <ServicesSection {...homePageData['services-section']} />
+      <Footer />
     </div>
   )
 }
