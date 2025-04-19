@@ -30,6 +30,9 @@ export default async function page() {
         heading={aboutPageData.heroHeading}
         description={aboutPageData.heroDescription}
         imageUrl={heroImageUrl}
+        ctaText="Explore Our Menu"
+        ctaUrl="/menu"
+        ctaShadow={true}
       />
       <SimpleSection
         title={aboutPageData.whoWeAreHeading}

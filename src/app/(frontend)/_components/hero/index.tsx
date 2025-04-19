@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = async (props) => {
           {props.description}
         </p>
         {hasCTA && (
-          <CTALink href={props.ctaUrl} showShadow={props.ctaShadow}>
+          <CTALink href={props.ctaUrl} showShadow={props.ctaShadow} target="_blank">
             {props.ctaText}
           </CTALink>
         )}

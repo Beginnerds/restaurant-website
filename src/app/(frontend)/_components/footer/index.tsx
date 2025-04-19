@@ -20,7 +20,7 @@ const Footer = async () => {
     <footer className="mt-20 pb-10 lg:mt-40 grid grid-cols-2 sm:grid-cols-3  gap-x-2 gap-y-10 sm:gap-y-32 justify-items-center overflow-hidden [p,a]:max-w-full [p,a]:break-words wrap-break-word">
       <div className="max-sm:col-span-full">
         <Image className="mx-auto sm:mx-0" src={logoUrl} alt="logo" width={200} height={200} />
-        <p className="mt-10 text-center sm:text-start text-lg font-medium tracking-[150%] text-[#555555]">
+        <p className="mt-10 text-center sm:text-start text-lg font-medium tracking-wider text-[#555555]">
           Savor the artistry where every dish is a culinary masterpiece
         </p>
       </div>

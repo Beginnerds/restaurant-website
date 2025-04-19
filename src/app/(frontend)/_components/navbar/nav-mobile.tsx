@@ -100,7 +100,7 @@ const NavMobile: React.FC<NavProps> = ({ logoUrl }) => {
           </li>
           <li className=" text-center">
             <Link
-              href="https://www.upwork.com/freelancers/shubhamkalra4"
+              href="#"
               target="_blank"
               className="bg-primary font-semibold filter transition-all hover:brightness-75 px-6 py-2 rounded-full text-white flex items-center justify-center gap-2"
             >

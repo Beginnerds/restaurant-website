@@ -92,11 +92,13 @@ export interface Config {
     'home-page': HomePage;
     'site-settings': SiteSetting;
     'about-page': AboutPage;
+    'menu-page': MenuPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'menu-page': MenuPageSelect<false> | MenuPageSelect<true>;
   };
   locale: null;
   user: User & {
@@ -513,6 +515,35 @@ export interface AboutPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-page".
+ */
+export interface MenuPage {
+  id: number;
+  /**
+   * Image for the hero section of this page
+   */
+  heroImage: number | Media;
+  /**
+   * Title to show in hero section of this page
+   */
+  heading: string;
+  /**
+   * Description text for hero section of this page
+   */
+  description: string;
+  /**
+   * Text to show for the CTA (call to action) button
+   */
+  ctaText: string;
+  /**
+   * Link for the CTA button
+   */
+  ctaLink: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -601,6 +632,20 @@ export interface AboutPageSelect<T extends boolean = true> {
   servicesImage?: T;
   servicesHeading?: T;
   servicesDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-page_select".
+ */
+export interface MenuPageSelect<T extends boolean = true> {
+  heroImage?: T;
+  heading?: T;
+  description?: T;
+  ctaText?: T;
+  ctaLink?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
