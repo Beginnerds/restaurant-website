@@ -91,10 +91,12 @@ export interface Config {
   globals: {
     'home-page': HomePage;
     'site-settings': SiteSetting;
+    'about-page': AboutPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
   };
   locale: null;
   user: User & {
@@ -466,6 +468,51 @@ export interface SiteSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page".
+ */
+export interface AboutPage {
+  id: number;
+  /**
+   * Image for the hero section
+   */
+  heroImage: number | Media;
+  /**
+   * Title to show in hero section, Last word here will be shown in different color
+   */
+  heroHeading: string;
+  /**
+   * Description text for hero section
+   */
+  heroDescription: string;
+  /**
+   * Image for this section
+   */
+  whoWeAreImage: number | Media;
+  /**
+   * Title to show for this section
+   */
+  whoWeAreHeading: string;
+  /**
+   * Description text to show for this section
+   */
+  whoWeAreDescription: string;
+  /**
+   * Image for this section
+   */
+  servicesImage: number | Media;
+  /**
+   * Title to show for this section
+   */
+  servicesHeading: string;
+  /**
+   * Description text to show for this section
+   */
+  servicesDescription: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -536,6 +583,24 @@ export interface SiteSettingsSelect<T extends boolean = true> {
         url?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page_select".
+ */
+export interface AboutPageSelect<T extends boolean = true> {
+  heroImage?: T;
+  heroHeading?: T;
+  heroDescription?: T;
+  whoWeAreImage?: T;
+  whoWeAreHeading?: T;
+  whoWeAreDescription?: T;
+  servicesImage?: T;
+  servicesHeading?: T;
+  servicesDescription?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

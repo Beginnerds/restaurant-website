@@ -14,6 +14,7 @@ import { MenuItems } from './collections/MenuItems'
 
 import { HomePage } from './globals/HomePage'
 import { SiteSettings } from './globals/SiteSettings'
+import { AboutPage } from './globals/AboutPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +26,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [HomePage, SiteSettings],
+  globals: [HomePage, SiteSettings, AboutPage],
   collections: [Users, Media, MenuCategories, MenuItems],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

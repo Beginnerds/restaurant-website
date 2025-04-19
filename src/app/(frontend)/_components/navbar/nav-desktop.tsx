@@ -32,7 +32,7 @@ const NavDesktop: React.FC<NavProps> = ({ logoUrl }) => {
         </li>
         <li>
           <Link
-            href="#projects"
+            href="/about"
             className={`font-semibold ${pathname == '/about' ? 'text-primary' : ''}`}
           >
             About

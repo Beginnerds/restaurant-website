@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import NavBar from './_components/navbar'
+import Footer from './_components/footer'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -16,7 +17,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <header className="sticky top-0 left-0 z-30 md:max-w-7xl mx-auto">
           <NavBar />
         </header>
-        <main className="md:max-w-7xl mx-auto">{children}</main>
+        <main className="md:max-w-7xl mx-auto">
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   )

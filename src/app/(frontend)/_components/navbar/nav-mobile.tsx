@@ -78,7 +78,7 @@ const NavMobile: React.FC<NavProps> = ({ logoUrl }) => {
         >
           {' '}
           <li className="w-full text-center mt-24">
-            <Link href="/home" className={`block w-full ${pathname == '/' ? 'text-primary' : ''}`}>
+            <Link href="/" className={`block w-full ${pathname == '/' ? 'text-primary' : ''}`}>
               Home
             </Link>
           </li>

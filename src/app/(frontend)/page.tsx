@@ -9,7 +9,6 @@ import CategorySection from './_components/category-section'
 import FeaturedFoodSection from './_components/featured-food-section'
 import TestimonialsSection from './_components/testimonials-section/testimonials-section'
 import ServicesSection from './_components/services-section'
-import Footer from './_components/footer'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -21,9 +20,19 @@ export default async function HomePage() {
     slug: 'home-page',
   })
 
+  const heroMedia = homePageData.hero.heroImage
+
+  const heroImageUrl = typeof heroMedia === 'object' && heroMedia?.url ? heroMedia.url : ''
   return (
     <div className="px-4 md:px-8">
-      <Hero {...homePageData.hero} />
+      <Hero
+        heading={homePageData.hero.heading}
+        description={homePageData.hero.description}
+        imageUrl={heroImageUrl}
+        ctaText={homePageData.hero.ctaText}
+        ctaUrl={homePageData.hero.ctaLink}
+        ctaShadow={true}
+      />
       <CategorySection
         featuredCategoryItems={homePageData['featured-section']?.featuredCategoryItems}
       />
@@ -32,7 +41,6 @@ export default async function HomePage() {
       />
       <TestimonialsSection {...homePageData.testimonials} />
       <ServicesSection {...homePageData['services-section']} />
-      <Footer />
     </div>
   )
 }
