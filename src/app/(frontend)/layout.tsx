@@ -3,9 +3,18 @@ import './styles.css'
 import NavBar from './_components/navbar'
 import Footer from './_components/footer'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  description: 'Yummi serves fresh, flavorful dishes crafted to delight every craving."',
+  title: 'Yummi - Food And More',
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      url: '/assets/favicon.png',
+    },
+  ],
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

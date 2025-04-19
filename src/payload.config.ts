@@ -26,6 +26,30 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      icons: [
+        {
+          type: 'image/png',
+          rel: 'icon',
+          url: '/assets/favicon.png',
+        },
+      ],
+      openGraph: {
+        images: [
+          {
+            type: 'image/png',
+            url: '/assets/logo.png',
+          },
+        ],
+      },
+      titleSuffix: ' - Yummi',
+    },
+    components: {
+      graphics: {
+        Icon: '/components/Icon',
+        Logo: '/components/Logo',
+      },
+    },
   },
   globals: [HomePage, SiteSettings, AboutPage, MenuPage],
   collections: [Users, Media, MenuCategories, MenuItems],
