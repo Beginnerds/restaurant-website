@@ -19,6 +19,9 @@ const FeaturedFoodSection: React.FC<FeaturedMenuItemsProps> = (props) => {
   }[]
 
   const mappedItems = items.map((i) => {
+    if (!i.featuredMenuItem) {
+      return
+    }
     const imgMedia = i.featuredMenuItem.image
 
     const imgUrl = typeof imgMedia === 'object' && imgMedia?.url ? imgMedia.url : ''
@@ -34,7 +37,7 @@ const FeaturedFoodSection: React.FC<FeaturedMenuItemsProps> = (props) => {
   return (
     <section className="w-full mt-52">
       <SectionLabel>Special Dishes </SectionLabel>
-      <EmblaCarousel cardsData={mappedItems} />
+      <EmblaCarousel cardsData={mappedItems.filter((item) => item != undefined)} />
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import { authenticated } from '@/access/authenticated'
+import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { GlobalConfig } from 'payload'
 
 export const MenuPage: GlobalConfig = {
@@ -6,6 +7,18 @@ export const MenuPage: GlobalConfig = {
   access: {
     read: authenticated,
     update: authenticated,
+  },
+  admin: {
+    livePreview: {
+      url: ({ data, req }) => {
+        const path = generatePreviewPath({
+          collection: 'menu-page',
+          req,
+        })
+
+        return path
+      },
+    },
   },
   fields: [
     {
@@ -56,4 +69,13 @@ export const MenuPage: GlobalConfig = {
       },
     },
   ],
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 50, // We set this interval for optimal live preview
+      },
+      schedulePublish: true,
+    },
+    max: 50,
+  },
 }

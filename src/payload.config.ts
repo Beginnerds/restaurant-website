@@ -16,6 +16,7 @@ import { HomePage } from './globals/HomePage'
 import { SiteSettings } from './globals/SiteSettings'
 import { AboutPage } from './globals/AboutPage'
 import { MenuPage } from './globals/MenuPage'
+import { generatePreviewPath } from './utilities/generatePreviewPath'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -49,6 +50,28 @@ export default buildConfig({
         Icon: '/components/Icon',
         Logo: '/components/Logo',
       },
+    },
+    livePreview: {
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+        {
+          label: 'Tablet',
+          name: 'tablet',
+          width: 768,
+          height: 1024,
+        },
+        {
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+          height: 900,
+        },
+      ],
     },
   },
   globals: [HomePage, SiteSettings, AboutPage, MenuPage],

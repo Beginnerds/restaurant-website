@@ -33,13 +33,16 @@ const CategorySection: React.FC<FeaturedCategoryItemsProps> = async (props) => {
   }[]
 
   const mappedItems = items.map((i) => {
-    const imgMedia = i.featuredCategoryItem.image
+    if (!i.featuredCategoryItem) {
+      return
+    }
+    const imgMedia = i.featuredCategoryItem?.image
 
     const imgUrl = typeof imgMedia === 'object' && imgMedia?.url ? imgMedia.url : ''
 
     const totalDishes = menuItemsResult.docs
       .slice()
-      .filter((item) => (item.category as MenuCategory).name == i.featuredCategoryItem.name)
+      .filter((item) => (item.category as MenuCategory)?.name == i.featuredCategoryItem?.name)
 
     return {
       name: i.featuredCategoryItem.name,
@@ -52,9 +55,11 @@ const CategorySection: React.FC<FeaturedCategoryItemsProps> = async (props) => {
     <section className="my-10">
       <SectionLabel>Popular Categories</SectionLabel>
       <div className="flex justify-evenly lg:justify-between items-center gap-8 flex-wrap">
-        {mappedItems.map((item, ind) => (
-          <Card key={ind} name={item.name} imgUrl={item.imgUrl} dishesCount={item.dishesCount} />
-        ))}
+        {mappedItems
+          .filter((a) => a != undefined)
+          .map((item, ind) => (
+            <Card key={ind} name={item.name} imgUrl={item.imgUrl} dishesCount={item.dishesCount} />
+          ))}
         <Card
           name="Browse All"
           imgUrl="/other-category-items.png"

@@ -1,4 +1,5 @@
 import { authenticated } from '@/access/authenticated'
+import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { GlobalConfig } from 'payload'
 
 export const AboutPage: GlobalConfig = {
@@ -7,7 +8,18 @@ export const AboutPage: GlobalConfig = {
     read: authenticated,
     update: authenticated,
   },
+  admin: {
+    livePreview: {
+      url: ({ data, req }) => {
+        const path = generatePreviewPath({
+          collection: 'about-page',
+          req,
+        })
 
+        return path
+      },
+    },
+  },
   fields: [
     {
       type: 'collapsible',
@@ -113,4 +125,12 @@ export const AboutPage: GlobalConfig = {
       ],
     },
   ],
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 50, // We set this interval for optimal live preview
+      },
+    },
+    max: 50,
+  },
 }

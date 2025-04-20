@@ -1,13 +1,15 @@
 import { authenticated } from '@/access/authenticated'
+import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import type { CollectionConfig } from 'payload'
 
 export const MenuItems: CollectionConfig = {
   slug: 'menu-items',
   access: {
-    read: () => true,
+    read: authenticated,
     create: authenticated,
     update: authenticated,
     delete: authenticated,
+    readVersions: authenticated,
   },
   fields: [
     { name: 'title', type: 'text', required: true },
@@ -26,5 +28,23 @@ export const MenuItems: CollectionConfig = {
   ],
   admin: {
     useAsTitle: 'title',
+    livePreview: {
+      url: ({ data, req }) => {
+        const path = generatePreviewPath({
+          collection: 'menu-items',
+          req,
+        })
+
+        return path
+      },
+    },
+  },
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 50, // We set this interval for optimal live preview
+      },
+    },
+    maxPerDoc: 50,
   },
 }

@@ -1,6 +1,7 @@
 import { authenticated } from '@/access/authenticated'
 import type { CollectionConfig } from 'payload'
 import { assignOrderFieldHook } from './hooks/assignOrder'
+import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 
 export const MenuCategories: CollectionConfig = {
   slug: 'menu-categories',
@@ -32,5 +33,23 @@ export const MenuCategories: CollectionConfig = {
   ],
   admin: {
     useAsTitle: 'name',
+    livePreview: {
+      url: ({ data, req }) => {
+        const path = generatePreviewPath({
+          collection: 'menu-categories',
+          req,
+        })
+
+        return path
+      },
+    },
+  },
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 50, // We set this interval for optimal live preview
+      },
+    },
+    maxPerDoc: 50,
   },
 }

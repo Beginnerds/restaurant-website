@@ -3,6 +3,8 @@ import './styles.css'
 import NavBar from './_components/navbar'
 import Footer from './_components/footer'
 
+import AdminBar from '@/components/admin-bar'
+
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body className="bg-background relative font-default">
         <header className="sticky top-0 left-0 z-30 md:max-w-7xl mx-auto">
+          <AdminBar />
           <NavBar />
         </header>
         <main className="md:max-w-7xl mx-auto">
