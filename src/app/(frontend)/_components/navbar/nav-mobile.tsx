@@ -51,7 +51,7 @@ const NavMobile: React.FC<NavProps> = ({ logoUrl }) => {
     <motion.nav className="relative h-full text-[#272727] bg-background">
       <ul className="h-full py-4 px-4 flex items-center justify-between text-lg">
         <li className="">
-          <Image src={logoUrl} height={80} width={80} alt="site-logo" />
+          {logoUrl && <Image src={logoUrl} height={80} width={80} alt="site-logo" />}
         </li>
         <li>
           {!open && (

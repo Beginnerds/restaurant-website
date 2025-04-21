@@ -17,7 +17,7 @@ const NavDesktop: React.FC<NavProps> = ({ logoUrl }) => {
     <nav className="w-full h-full">
       <ul className="h-full flex gap-8 items-center justify-evenly text-[#272727] px-8 text-lg">
         <li className="mr-auto">
-          <Image src={logoUrl} height={41} width={109} alt="site-logo" />
+          {logoUrl && <Image src={logoUrl} height={41} width={109} alt="site-logo" />}
         </li>
         <li className={`font-semibold ${pathname == '/' ? 'text-primary' : ''}`}>
           <Link href="/">Home</Link>
