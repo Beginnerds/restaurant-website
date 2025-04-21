@@ -16,7 +16,7 @@ const NavBar = async () => {
     draft,
   })
 
-  const logoMedia = siteSettings.logo
+  const logoMedia = siteSettings?.logo
 
   const logoUrl = typeof logoMedia === 'object' && logoMedia?.url ? logoMedia.url : ''
   return (
