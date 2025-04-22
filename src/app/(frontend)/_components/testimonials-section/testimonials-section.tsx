@@ -15,7 +15,7 @@ const TestimonialsSection: React.FC<Testimonials> = (props) => {
   return (
     <section className="w-full mt-24 md:mt-52 flex flex-col justify-start items-center gap-8 md:flex-row md:justify-between md:items-center">
       <Image
-        className="w-[300px] sm:w-[400px] lg:w-[500px] h-auto mx-auto"
+        className="w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[800px] h-auto mx-auto"
         src={imageUrl}
         alt="chef-image"
         width={549}

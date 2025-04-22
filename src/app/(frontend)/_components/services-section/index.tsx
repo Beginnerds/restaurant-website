@@ -39,7 +39,7 @@ const ServicesSection: React.FC<ServicesPrpos> = (props) => {
           <CTALink href={'/about'}>Explore</CTALink>
         </div>
       </div>
-      <div className="mt-10 lg:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="lg:max-w-1/2 mt-10 lg:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {mappedCards.map((item, ind) => (
           <Card key={ind} {...item} />
         ))}
